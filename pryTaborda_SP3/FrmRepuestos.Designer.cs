@@ -1,6 +1,6 @@
 ﻿namespace pryTaborda_SP3
 {
-    partial class Form1
+    partial class FrmRepuestos
     {
         /// <summary>
         ///  Required designer variable.
@@ -95,7 +95,7 @@
             maskedTextBox1.Size = new Size(100, 23);
             maskedTextBox1.TabIndex = 5;
             // 
-            // Form1
+            // FrmRepuestos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -106,7 +106,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "Form1";
+            Name = "FrmRepuestos";
             Text = "Repuestos";
             ResumeLayout(false);
             PerformLayout();

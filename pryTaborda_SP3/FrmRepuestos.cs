@@ -1,8 +1,8 @@
 namespace pryTaborda_SP3
 {
-    public partial class Form1 : Form
+    public partial class FrmRepuestos : Form
     {
-        public Form1()
+        public FrmRepuestos()
         {
             InitializeComponent();
         }
