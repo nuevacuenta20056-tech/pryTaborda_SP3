@@ -2,6 +2,16 @@ namespace pryTaborda_SP3
 {
     public partial class FrmRepuestos : Form
     {
+        //Definir estructura
+        struct Repuesto { }
+        public char marca;  //P, F o R
+        public char origen;// i,n
+        public int Numero; 
+        public float precio;
+
+        Repuesto[] repuestos = new Repuesto[100];
+        int cantidad = 0;
+
         public FrmRepuestos()
         {
             InitializeComponent();
@@ -41,5 +51,19 @@ namespace pryTaborda_SP3
         {
 
         }
-    }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (cantidad >= 100)
+                cantidad = 0;
+            MessageBox.Show("no se pueden agregar mas repuestos(maximo 100).");
+          
+            //Validaciones
+            if (cmbMarca.SelectedIndex == -1  
+        }
+        
+        
+    }     
+     
+           
 }
