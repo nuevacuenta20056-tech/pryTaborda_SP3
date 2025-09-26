@@ -6,7 +6,7 @@ namespace pryTaborda_SP3
         struct Repuesto { }
         public char marca;  //P, F o R
         public char origen;// i,n
-        public int Numero; 
+        public int Numero; // maximo 6 digitos 
         public float precio;
 
         Repuesto[] repuestos = new Repuesto[100];
@@ -57,13 +57,16 @@ namespace pryTaborda_SP3
             if (cantidad >= 100)
                 cantidad = 0;
             MessageBox.Show("no se pueden agregar mas repuestos(maximo 100).");
-          
-            //Validaciones
-            if (cmbMarca.SelectedIndex == -1  
+            return;
         }
         
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+
+        }
         
-    }     
-     
-           
+
+    }
+
+
 }
