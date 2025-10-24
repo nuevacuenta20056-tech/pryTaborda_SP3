@@ -17,7 +17,12 @@ namespace pryTaborda_SP3
         {
             InitializeComponent();
         }
-
+        string[] vecMarca = new string[100];
+        string[] vecNumeros = new string[100];
+        float[] vecPrecio = new float[100];
+        string[] vecOrigen = new string[100];
+        string[] vecDescripcion = new string[100];
+        int i = 0;
         private void label5_Click(object sender, EventArgs e)
         {
 
@@ -55,22 +60,44 @@ namespace pryTaborda_SP3
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            cantidad = 0;
-
-
-            if (cantidad >= 100)
-
-            {
-                cantidad = 0;
+            if(i == 100)
+ {
+                MessageBox.Show("No se permiten mas ingresos");
             }
-            //Validaciones 
-            if (cmbMarca.SelectedIndex == -1 && mskNumero.Text == "" && txtDescripcion.Text == "" && txtPrecio.Text == "")
+            else
             {
-                MessageBox.Show("Debe completar todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                if (cmbMarca.Text != "" && lblOrigen.Text != "" && txtNumero.Text != "" &&
+                    txtPrecio.Text != "" && txtDescripcion.Text != "")
+                {
+                    int iDos = 0;
+                    int Mensaje = 0;
+
+                    while ((iDos < 100) && (Mensaje == 0))
+                    {
+                        if (vecNumeros[iDos] == txtNumero.Text)
+                        {
+                            MessageBox.Show("Numero de Repuesto ya existente");
+                            Mensaje = 1;
+                        }
+                        iDos++;
+                    }
+                    if (iDos == 100)
+                    {
+                        vecDescripcion[i] = txtDescripcion.Text;
+                        vecMarca[i] = cmbMarca.Text;
+                        vecOrigen[i] = lblOrigen.Text;
+                        vecPrecio[i] = Convert.ToSingle(txtPrecio.Text);
+                        vecNumeros[i] = txtNumero.Text;
+                        i++;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Faltan datos");
+                }
+
             }
 
-           
         } 
            
         private void btnLimpiar_Click(object sender, EventArgs e)

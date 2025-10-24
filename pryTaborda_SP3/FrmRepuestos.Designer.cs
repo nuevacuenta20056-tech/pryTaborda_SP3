@@ -30,7 +30,7 @@
         {
             lblMarca = new Label();
             lblOrigen = new Label();
-            lblNumero = new Label();
+            txtNumero = new Label();
             lblPrecio = new Label();
             mskNumero = new MaskedTextBox();
             btnAgregar = new Button();
@@ -73,17 +73,17 @@
             lblOrigen.TabIndex = 1;
             lblOrigen.Text = "Origen ";
             // 
-            // lblNumero
+            // txtNumero
             // 
-            lblNumero.AutoSize = true;
-            lblNumero.BorderStyle = BorderStyle.Fixed3D;
-            lblNumero.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblNumero.Location = new Point(80, 135);
-            lblNumero.Name = "lblNumero";
-            lblNumero.Size = new Size(58, 19);
-            lblNumero.TabIndex = 2;
-            lblNumero.Text = "Número";
-            lblNumero.Click += label3_Click;
+            txtNumero.AutoSize = true;
+            txtNumero.BorderStyle = BorderStyle.Fixed3D;
+            txtNumero.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtNumero.Location = new Point(80, 135);
+            txtNumero.Name = "txtNumero";
+            txtNumero.Size = new Size(58, 19);
+            txtNumero.TabIndex = 2;
+            txtNumero.Text = "Número";
+            txtNumero.Click += label3_Click;
             // 
             // lblPrecio
             // 
@@ -224,7 +224,7 @@
             Controls.Add(btnAgregar);
             Controls.Add(mskNumero);
             Controls.Add(lblPrecio);
-            Controls.Add(lblNumero);
+            Controls.Add(txtNumero);
             Controls.Add(lblOrigen);
             Controls.Add(lblMarca);
             ForeColor = SystemColors.ControlText;
@@ -240,7 +240,7 @@
 
         private Label lblMarca;
         private Label lblOrigen;
-        private Label lblNumero;
+        private Label txtNumero;
         private Label lblPrecio;
         private MaskedTextBox mskNumero;
         private Button btnAgregar;
