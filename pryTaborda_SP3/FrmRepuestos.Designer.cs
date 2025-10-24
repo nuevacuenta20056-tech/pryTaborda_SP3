@@ -34,30 +34,30 @@
             lblPrecio = new Label();
             mskNumero = new MaskedTextBox();
             btnAgregar = new Button();
-            cmbxMarca = new ComboBox();
-            textBox2 = new TextBox();
+            cmbMarca = new ComboBox();
+            txtPrecio = new TextBox();
             rbtnInternacional = new RadioButton();
             rbtnNacional = new RadioButton();
             btnLimpiar = new Button();
             lblIngresoRep = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
-            lblConsultaRep = new Label();
-            lblMarcaC = new Label();
-            lblOrigeen = new Label();
-            rbtnInt = new RadioButton();
-            rbtnNac = new RadioButton();
-            cmbMarca = new ComboBox();
-            btnBuscar = new Button();
+            txtDescripcion = new TextBox();
+            listRepuestos = new ListView();
+            Marca = new ColumnHeader();
+            Origen = new ColumnHeader();
+            Numero = new ColumnHeader();
+            Descripcion = new ColumnHeader();
+            Precio = new ColumnHeader();
             SuspendLayout();
             // 
             // lblMarca
             // 
             lblMarca.AutoSize = true;
+            lblMarca.BorderStyle = BorderStyle.Fixed3D;
             lblMarca.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblMarca.Location = new Point(23, 84);
+            lblMarca.Location = new Point(23, 88);
             lblMarca.Name = "lblMarca";
-            lblMarca.Size = new Size(126, 17);
+            lblMarca.Size = new Size(128, 19);
             lblMarca.TabIndex = 0;
             lblMarca.Text = "Marca del Repuesto";
             lblMarca.Click += label1_Click;
@@ -67,7 +67,7 @@
             lblOrigen.AutoSize = true;
             lblOrigen.BorderStyle = BorderStyle.Fixed3D;
             lblOrigen.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblOrigen.Location = new Point(293, 84);
+            lblOrigen.Location = new Point(337, 87);
             lblOrigen.Name = "lblOrigen";
             lblOrigen.Size = new Size(54, 19);
             lblOrigen.TabIndex = 1;
@@ -90,7 +90,7 @@
             lblPrecio.AutoSize = true;
             lblPrecio.BorderStyle = BorderStyle.Fixed3D;
             lblPrecio.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPrecio.Location = new Point(297, 137);
+            lblPrecio.Location = new Point(88, 174);
             lblPrecio.Name = "lblPrecio";
             lblPrecio.Size = new Size(50, 19);
             lblPrecio.TabIndex = 4;
@@ -99,7 +99,7 @@
             // 
             // mskNumero
             // 
-            mskNumero.Location = new Point(175, 133);
+            mskNumero.Location = new Point(175, 129);
             mskNumero.Mask = "000-000";
             mskNumero.Name = "mskNumero";
             mskNumero.Size = new Size(66, 23);
@@ -108,7 +108,7 @@
             // btnAgregar
             // 
             btnAgregar.BackColor = Color.ForestGreen;
-            btnAgregar.Location = new Point(43, 267);
+            btnAgregar.Location = new Point(268, 291);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(95, 25);
             btnAgregar.TabIndex = 10;
@@ -116,26 +116,27 @@
             btnAgregar.UseVisualStyleBackColor = false;
             btnAgregar.Click += btnAgregar_Click;
             // 
-            // cmbxMarca
+            // cmbMarca
             // 
-            cmbxMarca.FormattingEnabled = true;
-            cmbxMarca.Items.AddRange(new object[] { "(P) Peugueot", "(F) Fiat", "(R) Renault" });
-            cmbxMarca.Location = new Point(175, 83);
-            cmbxMarca.Name = "cmbxMarca";
-            cmbxMarca.Size = new Size(66, 23);
-            cmbxMarca.TabIndex = 12;
+            cmbMarca.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbMarca.FormattingEnabled = true;
+            cmbMarca.Items.AddRange(new object[] { "(P) Peugueot", "(F) Fiat", "(R) Renault" });
+            cmbMarca.Location = new Point(175, 87);
+            cmbMarca.Name = "cmbMarca";
+            cmbMarca.Size = new Size(66, 23);
+            cmbMarca.TabIndex = 12;
             // 
-            // textBox2
+            // txtPrecio
             // 
-            textBox2.Location = new Point(377, 136);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(86, 23);
-            textBox2.TabIndex = 13;
+            txtPrecio.Location = new Point(175, 170);
+            txtPrecio.Name = "txtPrecio";
+            txtPrecio.Size = new Size(66, 23);
+            txtPrecio.TabIndex = 13;
             // 
             // rbtnInternacional
             // 
             rbtnInternacional.AutoSize = true;
-            rbtnInternacional.Location = new Point(420, 83);
+            rbtnInternacional.Location = new Point(297, 133);
             rbtnInternacional.Name = "rbtnInternacional";
             rbtnInternacional.Size = new Size(94, 19);
             rbtnInternacional.TabIndex = 14;
@@ -146,7 +147,7 @@
             // rbtnNacional
             // 
             rbtnNacional.AutoSize = true;
-            rbtnNacional.Location = new Point(536, 84);
+            rbtnNacional.Location = new Point(416, 133);
             rbtnNacional.Name = "rbtnNacional";
             rbtnNacional.Size = new Size(72, 19);
             rbtnNacional.TabIndex = 15;
@@ -157,8 +158,8 @@
             // 
             // btnLimpiar
             // 
-            btnLimpiar.BackColor = Color.LightGray;
-            btnLimpiar.Location = new Point(162, 267);
+            btnLimpiar.BackColor = Color.Red;
+            btnLimpiar.Location = new Point(398, 291);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(90, 25);
             btnLimpiar.TabIndex = 17;
@@ -171,7 +172,7 @@
             lblIngresoRep.AutoSize = true;
             lblIngresoRep.BorderStyle = BorderStyle.Fixed3D;
             lblIngresoRep.Font = new Font("Segoe UI", 14.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblIngresoRep.Location = new Point(214, 24);
+            lblIngresoRep.Location = new Point(157, 28);
             lblIngresoRep.Name = "lblIngresoRep";
             lblIngresoRep.Size = new Size(177, 27);
             lblIngresoRep.TabIndex = 18;
@@ -181,93 +182,28 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(23, 189);
+            label2.Location = new Point(12, 220);
             label2.Name = "label2";
             label2.Size = new Size(69, 15);
             label2.TabIndex = 19;
             label2.Text = "Descripcion";
             // 
-            // textBox1
+            // txtDescripcion
             // 
-            textBox1.Location = new Point(112, 186);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(198, 52);
-            textBox1.TabIndex = 20;
+            txtDescripcion.Location = new Point(104, 217);
+            txtDescripcion.Multiline = true;
+            txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.Size = new Size(198, 52);
+            txtDescripcion.TabIndex = 20;
             // 
-            // lblConsultaRep
+            // listRepuestos
             // 
-            lblConsultaRep.AutoSize = true;
-            lblConsultaRep.BorderStyle = BorderStyle.Fixed3D;
-            lblConsultaRep.Font = new Font("Segoe UI", 14.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblConsultaRep.Location = new Point(149, 305);
-            lblConsultaRep.Name = "lblConsultaRep";
-            lblConsultaRep.Size = new Size(198, 27);
-            lblConsultaRep.TabIndex = 21;
-            lblConsultaRep.Text = "Consulta de Repuestos";
-            // 
-            // lblMarcaC
-            // 
-            lblMarcaC.AutoSize = true;
-            lblMarcaC.BorderStyle = BorderStyle.Fixed3D;
-            lblMarcaC.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblMarcaC.Location = new Point(33, 361);
-            lblMarcaC.Name = "lblMarcaC";
-            lblMarcaC.Size = new Size(47, 19);
-            lblMarcaC.TabIndex = 22;
-            lblMarcaC.Text = "Marca";
-            // 
-            // lblOrigeen
-            // 
-            lblOrigeen.AutoSize = true;
-            lblOrigeen.BorderStyle = BorderStyle.Fixed3D;
-            lblOrigeen.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblOrigeen.Location = new Point(258, 361);
-            lblOrigeen.Name = "lblOrigeen";
-            lblOrigeen.Size = new Size(50, 19);
-            lblOrigeen.TabIndex = 23;
-            lblOrigeen.Text = "Origen";
-            // 
-            // rbtnInt
-            // 
-            rbtnInt.AutoSize = true;
-            rbtnInt.Location = new Point(336, 360);
-            rbtnInt.Name = "rbtnInt";
-            rbtnInt.Size = new Size(94, 19);
-            rbtnInt.TabIndex = 24;
-            rbtnInt.TabStop = true;
-            rbtnInt.Text = "Internacional";
-            rbtnInt.UseVisualStyleBackColor = true;
-            // 
-            // rbtnNac
-            // 
-            rbtnNac.AutoSize = true;
-            rbtnNac.Location = new Point(449, 359);
-            rbtnNac.Name = "rbtnNac";
-            rbtnNac.Size = new Size(72, 19);
-            rbtnNac.TabIndex = 25;
-            rbtnNac.TabStop = true;
-            rbtnNac.Text = "Nacional";
-            rbtnNac.UseVisualStyleBackColor = true;
-            // 
-            // cmbMarca
-            // 
-            cmbMarca.FormattingEnabled = true;
-            cmbMarca.Items.AddRange(new object[] { "Peugueot", "Fiat", "Renault" });
-            cmbMarca.Location = new Point(100, 357);
-            cmbMarca.Name = "cmbMarca";
-            cmbMarca.Size = new Size(101, 23);
-            cmbMarca.TabIndex = 26;
-            // 
-            // btnBuscar
-            // 
-            btnBuscar.BackColor = Color.DodgerBlue;
-            btnBuscar.Location = new Point(200, 422);
-            btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(84, 28);
-            btnBuscar.TabIndex = 27;
-            btnBuscar.Text = "Buscar";
-            btnBuscar.UseVisualStyleBackColor = false;
+            listRepuestos.Columns.AddRange(new ColumnHeader[] { Marca, Origen, Numero, Descripcion, Precio });
+            listRepuestos.Location = new Point(23, 348);
+            listRepuestos.Name = "listRepuestos";
+            listRepuestos.Size = new Size(387, 97);
+            listRepuestos.TabIndex = 21;
+            listRepuestos.UseCompatibleStateImageBehavior = false;
             // 
             // FrmRepuestos
             // 
@@ -275,30 +211,25 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
             BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(644, 487);
-            Controls.Add(btnBuscar);
-            Controls.Add(cmbMarca);
-            Controls.Add(rbtnNac);
-            Controls.Add(rbtnInt);
-            Controls.Add(lblOrigeen);
-            Controls.Add(lblMarcaC);
-            Controls.Add(textBox1);
+            ClientSize = new Size(522, 487);
+            Controls.Add(listRepuestos);
+            Controls.Add(txtDescripcion);
             Controls.Add(label2);
             Controls.Add(lblIngresoRep);
             Controls.Add(btnLimpiar);
             Controls.Add(rbtnNacional);
             Controls.Add(rbtnInternacional);
-            Controls.Add(textBox2);
-            Controls.Add(cmbxMarca);
+            Controls.Add(txtPrecio);
+            Controls.Add(cmbMarca);
             Controls.Add(btnAgregar);
             Controls.Add(mskNumero);
             Controls.Add(lblPrecio);
             Controls.Add(lblNumero);
             Controls.Add(lblOrigen);
             Controls.Add(lblMarca);
-            Controls.Add(lblConsultaRep);
             ForeColor = SystemColors.ControlText;
             Name = "FrmRepuestos";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Gestion de Repuestos";
             Load += FrmRepuestos_Load;
             ResumeLayout(false);
@@ -313,20 +244,19 @@
         private Label lblPrecio;
         private MaskedTextBox mskNumero;
         private Button btnAgregar;
-        private ComboBox cmbxMarca;
-        private TextBox textBox2;
+        private ComboBox cmbMarca;
+        private TextBox txtPrecio;
         private RadioButton rbtnInternacional;
         private RadioButton rbtnNacional;
         private Button btnLimpiar;
         private Label lblIngresoRep;
         private Label label2;
-        private TextBox textBox1;
-        private Label lblConsultaRep;
-        private Label lblMarcaC;
-        private Label lblOrigeen;
-        private RadioButton rbtnInt;
-        private RadioButton rbtnNac;
-        private ComboBox cmbMarca;
-        private Button btnBuscar;
+        private TextBox txtDescripcion;
+        private ListView listRepuestos;
+        private ColumnHeader Numero;
+        private ColumnHeader Marca;
+        private ColumnHeader Origen;
+        private ColumnHeader Descripcion;
+        private ColumnHeader Precio;
     }
 }

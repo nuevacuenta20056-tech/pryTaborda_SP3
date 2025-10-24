@@ -1,3 +1,5 @@
+using System.Drawing.Text;
+
 namespace pryTaborda_SP3
 {
     public partial class FrmRepuestos : Form
@@ -6,7 +8,6 @@ namespace pryTaborda_SP3
         struct Repuesto { }
         public char marca;  //P, F o R
         public char origen;// i,n
-        public int Numero; // maximo 6 digitos 
         public float precio;
 
         Repuesto[] repuestos = new Repuesto[100];
@@ -54,15 +55,32 @@ namespace pryTaborda_SP3
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            cantidad = 0;
+
+
             if (cantidad >= 100)
+
+            {
                 cantidad = 0;
-            MessageBox.Show("no se pueden agregar mas repuestos(maximo 100).");
-            return;
-        }
-        
+            }
+            //Validaciones 
+            if (cmbMarca.SelectedIndex == -1 && mskNumero.Text == "" && txtDescripcion.Text == "" && txtPrecio.Text == "")
+            {
+                MessageBox.Show("Debe completar todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+           
+        } 
+           
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-
+            cmbMarca.SelectedIndex = -1;
+            mskNumero.Clear();
+            txtDescripcion.Clear();
+            txtPrecio.Clear();  
+            rbtnInternacional.Checked = false;  
+            rbtnNacional.Enabled = false;   
         }
         
 
