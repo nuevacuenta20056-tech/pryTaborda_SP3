@@ -39,10 +39,10 @@
             rbtnNacional = new RadioButton();
             btnLimpiar = new Button();
             lblIngresoRep = new Label();
-            label2 = new Label();
-            textBox1 = new TextBox();
+            lblDescripcion = new Label();
+            txtDescripcion = new TextBox();
             lstRepuestos = new ListBox();
-            maskedTextBox1 = new MaskedTextBox();
+            mskPrecio = new MaskedTextBox();
             SuspendLayout();
             // 
             // lblMarca
@@ -95,7 +95,7 @@
             // 
             mskNumero.Location = new Point(200, 177);
             mskNumero.Margin = new Padding(3, 4, 3, 4);
-            mskNumero.Mask = "000-000";
+            mskNumero.Mask = "000-000-0000";
             mskNumero.Name = "mskNumero";
             mskNumero.Size = new Size(114, 27);
             mskNumero.TabIndex = 5;
@@ -110,6 +110,7 @@
             btnAgregar.TabIndex = 10;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = false;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // cmbxMarca
             // 
@@ -156,6 +157,7 @@
             btnLimpiar.TabIndex = 17;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // lblIngresoRep
             // 
@@ -168,23 +170,23 @@
             lblIngresoRep.Text = "Ingreso de Repuesto";
             lblIngresoRep.Click += label1_Click_1;
             // 
-            // label2
+            // lblDescripcion
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(26, 252);
-            label2.Name = "label2";
-            label2.Size = new Size(87, 20);
-            label2.TabIndex = 19;
-            label2.Text = "Descripcion";
+            lblDescripcion.AutoSize = true;
+            lblDescripcion.Location = new Point(26, 252);
+            lblDescripcion.Name = "lblDescripcion";
+            lblDescripcion.Size = new Size(87, 20);
+            lblDescripcion.TabIndex = 19;
+            lblDescripcion.Text = "Descripcion";
             // 
-            // textBox1
+            // txtDescripcion
             // 
-            textBox1.Location = new Point(128, 248);
-            textBox1.Margin = new Padding(3, 4, 3, 4);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(226, 68);
-            textBox1.TabIndex = 20;
+            txtDescripcion.Location = new Point(128, 248);
+            txtDescripcion.Margin = new Padding(3, 4, 3, 4);
+            txtDescripcion.Multiline = true;
+            txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.Size = new Size(226, 68);
+            txtDescripcion.TabIndex = 20;
             // 
             // lstRepuestos
             // 
@@ -194,13 +196,14 @@
             lstRepuestos.Size = new Size(328, 104);
             lstRepuestos.TabIndex = 21;
             // 
-            // maskedTextBox1
+            // mskPrecio
             // 
-            maskedTextBox1.Location = new Point(453, 178);
-            maskedTextBox1.Mask = "$000-0000";
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(109, 27);
-            maskedTextBox1.TabIndex = 22;
+            mskPrecio.Location = new Point(453, 178);
+            mskPrecio.Mask = "$9999999";
+            mskPrecio.Name = "mskPrecio";
+            mskPrecio.Size = new Size(109, 27);
+            mskPrecio.TabIndex = 22;
+            mskPrecio.ValidatingType = typeof(int);
             // 
             // FrmRepuestos
             // 
@@ -208,10 +211,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(670, 585);
-            Controls.Add(maskedTextBox1);
+            Controls.Add(mskPrecio);
             Controls.Add(lstRepuestos);
-            Controls.Add(textBox1);
-            Controls.Add(label2);
+            Controls.Add(txtDescripcion);
+            Controls.Add(lblDescripcion);
             Controls.Add(lblIngresoRep);
             Controls.Add(btnLimpiar);
             Controls.Add(rbtnNacional);
@@ -245,9 +248,9 @@
         private RadioButton rbtnNacional;
         private Button btnLimpiar;
         private Label lblIngresoRep;
-        private Label label2;
-        private TextBox textBox1;
+        private Label lblDescripcion;
+        private TextBox txtDescripcion;
         private ListBox lstRepuestos;
-        private MaskedTextBox maskedTextBox1;
+        private MaskedTextBox mskPrecio;
     }
 }
