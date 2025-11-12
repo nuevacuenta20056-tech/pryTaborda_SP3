@@ -44,7 +44,7 @@ namespace pryTaborda_SP3
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            // Validar que se haya ingresado la información
+            // aca valido si todos los campos estan completos
             if (cmbxMarca.SelectedIndex == -1 || mskNumero.Text == "" || mskPrecio.Text == "")
             {
                 MessageBox.Show("Por favor, complete todos los campos requeridos.", "Información incompleta",
@@ -70,13 +70,13 @@ namespace pryTaborda_SP3
                 origen = "No especificado";
             }
 
-            // Crear el texto a mostrar en la lista
+            // crear el texto a mostrar en la lista
             string item = $"Marca: {marca} | Nº: {numero} | Origen: {origen} | Precio: ${precio} | {descripcion}";
 
-            // Agregar a la ListBox
+            // agrego datos a la lst
             lstRepuestos.Items.Add(item);
 
-            // Limpiar campos después de agregar
+            // limpio los campos despues de agregar
             LimpiarCampos();
         }
         private void LimpiarCampos()
@@ -92,6 +92,12 @@ namespace pryTaborda_SP3
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
+
+            // limpio los datos agregados de la lst
+            lstRepuestos.Items.Clear();
+
+            // elimina datos y vuelve al primer campo
+            cmbxMarca.Focus();
         }
     }
 }
